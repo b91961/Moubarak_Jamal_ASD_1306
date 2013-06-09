@@ -16,5 +16,18 @@ $(document).ready(function(){
 	});
 
 	$('#addItem').on('pageinit', function() {
-
+	
+			$(document).ready(function(){
+			    $("#effect").css("display","none");
+			        $(".Pending").click(function(){
+			        if ($('input[name=status]:checked').val() == "Completed" ) {
+			            $("#effect").slideDown("fast");
+			        } else {
+			            $("#effect").slideUp("fast");
+			        }
+			     });
+			});
+	});
+	
+	
 });
