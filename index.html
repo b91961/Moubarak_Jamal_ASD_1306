@@ -257,12 +257,7 @@ ASD 1306
 					<option value="overnight">POS</option>
 				</select>
 			</div>
-			
-			<div data-role="fieldcontain">
-				<label for="date">Date:</label>
-				<input type="date" data-clear-btn="true" name="date" id="date" placeholder="mm/dd/yyyy" />
-			</div>
-							
+					
 			<div data-role="fieldcontain">
 				<label for="compName">*Company Name:</label>
 				<input type="text" data-clear-btn="true" name="compName" id="compName" class="required"/>
@@ -283,17 +278,36 @@ ASD 1306
 				<input type="email" data-clear-btn="true" name="contEmail" id="contEmail" placeholder="example@gmail.com" class="required email"/>
 			</div>
 			
-			<div data-role="fieldcontain">
+    		<div data-role="fieldcontain">
 				<fieldset data-role="controlgroup">
-				    <legend>Status:</legend>
-				        <input type="radio" name="status" id="completed" value="completed">
-				        <label for="completed">Completed Job</label>
-				        <input type="radio" name="pending" id="pending" value="pending"  checked="checked">
-				        <label for="pending">Pending Job</label>
-				        <input type="radio" name="potential" id="potential" value="potential">
-				        <label for="potential">Potential Job</label>
-				</fieldset>
-			</div>
+					<legend>Job Status</legend>
+					<input type="radio" data-theme="c" checked value="Potential" name="status" id="potent" class="Pending" />
+				    <label for="potent">Potential</label>
+				    <input type="radio" data-theme="c" value="Pending" name="status" id="pend" class="Pending" />
+				    <label for="pend">Pending</label>
+				    <input type="radio" data-theme="c" value="Completed" name="status" id="compl" class="Pending" />
+				    <label for="compl">Completed</label>
+		    	</fieldset>
+		    	<ol id="effect" class="formset">
+			    	<h2>What Date was this Job Completed?</h2>
+					<div data-role="fieldcontain">
+						<label for="date">Date:</label>
+						<input type="date" data-clear-btn="true" name="date" id="date" placeholder="mm/dd/yyyy" />
+					</div>
+
+		    		<div data-role="fieldcontain">
+					    <fieldset data-role="controlgroup">
+					        <legend>Was Full Payment Received?</legend>
+							<input type="radio" data-theme="c" value="Yes" name="payment" id="yes" class="paymentStat" />
+						    <label for="yes">Yes</label>
+						    <input type="radio" data-theme="c" value="No" name="payment" id="no" class="paymentStat" />
+						    <label for="no">No</label>
+						    <input type="radio" data-theme="c" value="Partial" name="payment" id="part" class="paymentStat" />
+						    <label for="part">Partial</label>
+					    </fieldset>
+		    		</div>
+		    	</ol>
+    		</div>
 			
 			<div data-role="fieldcontain">
 				<label for="notes">Additional Information:</label>
