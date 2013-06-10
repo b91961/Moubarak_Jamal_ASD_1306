@@ -280,7 +280,7 @@ ASD 1306
 			
     		<div data-role="fieldcontain">
 				<fieldset data-role="controlgroup">
-					<legend>Job Status</legend>
+					<legend>Job Status:</legend>
 					<input type="radio" data-theme="c" checked value="Potential" name="status" id="potent" class="Pending" />
 				    <label for="potent">Potential</label>
 				    <input type="radio" data-theme="c" value="Pending" name="status" id="pend" class="Pending" />
@@ -308,10 +308,15 @@ ASD 1306
 		    		</div>
 		    	</ol>
     		</div>
+    		
+			<div data-role="fieldcontain">
+				<label for="networkNotes">Network and Login Info:</label>
+				<textarea name="networkNotes" id="networkNotes" placeholder="IP Info, DVR Info, Router Info, etc."></textarea>
+			</div>
 			
 			<div data-role="fieldcontain">
 				<label for="notes">Additional Information:</label>
-				<textarea name="notes" id="notes" placeholder="Type additional information here. Notes, Install Info, Usernames/Passwords, etc."></textarea>
+				<textarea name="notes" id="notes" placeholder="Type additional information here."></textarea>
 			</div>
 			
 		<input type="submit" value="Submit" id="submitButton" data-role="button" data-theme="a" data-inline="true"><input type="reset" value="Reset" id="resetButton" data-role="button" data-theme="c" data-inline="true">
