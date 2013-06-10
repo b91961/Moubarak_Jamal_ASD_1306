@@ -79,19 +79,22 @@ ASD 1306
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
-        <form action="" method="post" id="clientInstallForm"
-			<h2>Create A Task</h2>					
-			<div data-role="fieldcontain">
-				<label for="compName">Subject:</label>
-				<input type="text" data-clear-btn="true" name="compName" id="compName" placeholder="ex. Call client." class="required"/>
-			</div>    
-			<div data-role="fieldcontain">
-				<label for="notes">Message:</label>
-				<textarea name="notes" id="notes" placeholder="Type Message here."></textarea>
-			</div>
-			
-		<input type="submit" value="Submit" id="submitButton" data-role="button" data-theme="a" data-inline="true"><input type="reset" value="Reset" id="resetButton" data-role="button" data-theme="c" data-inline="true">
-        
+		<div class="todoTask" data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="true">
+		    <h3>Create A Task</h3>
+	        <form action="" method="post" id="todoForm"
+				<h2>Create A Task</h2>					
+				<div data-role="fieldcontain">
+					<label for="subject">Subject:</label>
+					<input type="text" data-clear-btn="true" name="subject" id="subject" placeholder="ex. Call client." class="required"/>
+				</div>    
+				<div data-role="fieldcontain">
+					<label for="todoMess">Message:</label>
+					<textarea name="todoMess" id="todoMess" placeholder="Type Message here."></textarea>
+				</div>
+				
+			<input type="submit" value="Submit" id="submitMessButton" data-role="button" data-theme="a" data-inline="true"><input type="reset" value="Reset" id="resetMessButton" data-role="button" data-theme="c" data-inline="true">
+		</div>
+
 
 	<div data-role="footer" data-position="fixed" data-id="home">
 		<div data-role="navbar">
@@ -119,10 +122,10 @@ ASD 1306
 				<label for="group" class="select">*Type of System:</label>
 				<select name="group" id="group" data-native-menu="false" class="required">
 					<option>--Type of System--</option>
-					<option value="standard">Surveillance</option>
-					<option value="rush">AudioVideo</option>
-					<option value="express">Network</option>
-					<option value="overnight">POS</option>
+					<option value="surveillance">Surveillance</option>
+					<option value="audioVideo">AudioVideo</option>
+					<option value="network">Network</option>
+					<option value="pos">POS</option>
 				</select>
 			</div>
 					
