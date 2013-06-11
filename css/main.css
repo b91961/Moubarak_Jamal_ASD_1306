@@ -24,3 +24,6 @@ form {
 tdh {
 	text-align: center;
 }
+ul li{
+	display: block;
+}
