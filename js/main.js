@@ -26,7 +26,7 @@ $(document).ready(function(){
 		$(document).ready(function(){
 		    $("#effect").css("display","none");
 		        $(".Pending").bind('click', function(e){
-		        if ($('input[name=status]:checked').val() == "Completed" ) {
+		        if ($('input[name=status]:checked').val() === "Completed" ) {
 		            $("#effect").slideDown("fast");
 		        } else {
 		            $("#effect").slideUp("fast");
@@ -71,10 +71,10 @@ $(document).ready(function(){
 	var editKey = "";
 
 	var saveData = function(){
-		if(!editkey) {
+		if(!editKey) {
 			var id = Math.floor(Math.random()*100000001);
 		} else {
-			var id = editkey;
+			var id = editKey;
 		}
 		
 		var item                = {};
@@ -134,7 +134,7 @@ $(document).ready(function(){
 		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#edDelBut");
 		}
 	};
-	
+
 	var deleteItem = function(editKey) {
 		var ask = confirm("Are you sure you want to delete this contact?");
 		if(ask){
