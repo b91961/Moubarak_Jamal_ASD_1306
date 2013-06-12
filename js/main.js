@@ -16,7 +16,16 @@ $(document).ready(function(){
 	
 	// To-Do Page pageinit function.
 	$('#todo').on('pageinit', function() {
-
+		
+		// Form Validator for client Install Form.
+		var tdForm = $('#todoForm');
+		tdForm.validate({
+			invalidHandler: function(form, validator) {
+			},
+			submitHandler: function() {
+				storeData(this.tdkey);
+			}
+		});
 	});
 	
 	// Add Item Page pageinit function.
@@ -65,6 +74,85 @@ $(document).ready(function(){
 
 
 // All functions go below here.
+
+	var tdEditKey = "";
+
+	var storeData = function(){
+		var tdId;
+		if(!tdEditKey) {
+			tdId = Math.floor(Math.random()*100000001);
+		} else {
+			tdId = tdEditKey;
+		}
+		
+		var tdItem          = {};
+			tdItem.subject  = ["Subject:", $("#subject").val()];
+			tdItem.message 	= ["Message:", $("#todomess").val()];
+			localStorage.setItem(tdId, JSON.stringify(tdItem));
+			alert("To-Do Message has been sent!");
+			console.log(tdId);
+			window.location = "#todo";
+			window.location.reload("#");
+			return false;
+	};
+	
+	var tdAutoFillData = function(){
+		for(var m in tdjson){
+			var tdId = Math.floor(Math.random()*100000001);
+			localStorage.setItem(tdId, JSON.stringify(tdjson[m]));
+		}
+	};
+	
+		var tdDeleteItem = function(tdEditKey) {
+		var tdAsk = confirm("Are you sure you want to delete this message?");
+		if(tdAsk){
+			localStorage.removeItem(tdEditKey);
+			alert("Message has been deleted!");
+			window.location = "#todo";
+			window.location.reload("#");
+		}else{
+			alert("Message was not Deleted!");
+		}	
+	};
+	
+	var tdEditItem = function(tdEditKey) {
+		var tdItems = JSON.parse(localStorage.getItem(tdEditKey));
+			$("#subject").val(tdItems.subject[1]);
+			$("#todoMess").val(tdItems.todoMess[1]);
+			$('#submitMessButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Message');
+			$("#submitMessButton").val('Update Message').data('tdKey', tdEditKey);	
+	};
+	
+	var tdShowData = function(tdKey){
+		if(localStorage.length === 0){
+			tdAutoFillData();
+			alert("No Messages have been entered yet.                             Here is some sample data.");
+		}
+		$.mobile.changePage("#todo");
+		
+		for (var j=0, l=localStorage.length; j<l; j++) {
+			var tdKey = localStorage.tdKey(j);
+			var tdValue = localStorage.getItem(tdKey);
+			var tdObj = JSON.parse(tdValue);
+			var tdMakeSubList = $('<ul></ul>');
+			var tdCreateLi = $(
+				"<li>" + tdObj.subject[0] + " " + tdObj.subject[1] + "</li>" +
+				"<li>" + tdObj.todoMess[0] + " " + tdObj.todoMess[1] + "</li>"				
+			);
+			var tdEditClientButton = $("<button data-key='"+tdKey+"'><a href='#todo'> Edit Message</a></button>");
+				tdEditClientButton.on('click', function(){
+					tdEditKey = $(this).data('tdKey');
+					tdEditItem(tdEditKey);
+				});
+			var tdDeleteClientButton = $("<button data-key='"+tdKey+"'><a href='#todoForm' id='delete"+tdKey+"'> Delete Message</a></button>");
+				tdDeleteClientButton.on('click', function(){
+					tdEditKey = $(this).data('tdKey');
+					tdDeleteItem(tdEditKey);
+				});
+		tdMakeSubList.append(tdCreateLi).append(tdEditClientButton).append("<br>").append(tdDeleteClientButton).appendTo("#messList");
+		}
+	};
+
 
 	var editKey = "";
 
@@ -133,7 +221,7 @@ $(document).ready(function(){
 	var showData = function(key){
 		if(localStorage.length === 0){
 			autoFillData();
-			alert("No Clients have been entered yet.  Here is some sample data.");
+			alert("No Clients have been entered yet.                             Here is some sample data.");
 		}
 		$.mobile.changePage("#clientList");
 		
@@ -168,24 +256,29 @@ $(document).ready(function(){
 		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#clList");
 		}
 	};
-
-
 	
 	var clearStorage = function(){
 		if(localStorage.length === 0){
 			alert("You have no Clients to Clear.");
 		} else {
-			localStorage.clear();
-			alert("All clients have been deleted.");
-			window.location = "#home";
-			window.location.reload("#");
-			return false;
+			var ask = confirm("Are you sure you want to delete ALL Clients?              This action can NOT be undone!!!");
+			if(ask){
+				localStorage.clear();
+				alert("All clients have been deleted.");
+				window.location = "#home";
+				window.location.reload("#");
+				return false;
+			}
 		}
 	};
 
-	$('#clearStorage').on('click', clearStorage);
+	$('.clearStorage').on('click', clearStorage);
 	$('#submitButton').on('click', saveData);
-	$('#displayData').on('click', showData);
+	$('.displayData').on('click', showData);
+	
+	$('.tdClearStorage').on('click', tdClearStorage);
+	$('#submitMessButton').on('click', storeData);
+	$('.tdDisplayData').on('click', tdShowData);
 
 });
 
