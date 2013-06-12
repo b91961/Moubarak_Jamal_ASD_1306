@@ -27,3 +27,13 @@ tdh {
 ul li{
 	display: block;
 }
+.delClients {
+	background-color: red;
+    -moz-box-shadow: 0em 0em 0.2em red;
+    -webkit-box-shadow: 0em 0em 0.2em red;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+h2 {
+	text-align: center;
+}
