@@ -23,7 +23,7 @@ $(document).ready(function(){
 			invalidHandler: function(form, validator) {
 			},
 			submitHandler: function() {
-				storeData(this.tdkey);
+				storeData(this.key);
 			}
 		});
 	});
@@ -120,10 +120,10 @@ $(document).ready(function(){
 			$("#subject").val(tdItems.subject[1]);
 			$("#todoMess").val(tdItems.todoMess[1]);
 			$('#submitMessButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Message');
-			$("#submitMessButton").val('Update Message').data('tdKey', tdEditKey);	
+			$("#submitMessButton").val('Update Message').data('key', tdEditKey);	
 	};
 	
-	var tdShowData = function(tdKey){
+	var tdShowData = function(key){
 		if(localStorage.length === 0){
 			tdAutoFillData();
 			alert("No Messages have been entered yet.  Here is some sample data.");
@@ -131,22 +131,22 @@ $(document).ready(function(){
 		$.mobile.changePage("#");
 		
 		for (var j=0, l=localStorage.length; j<l; j++) {
-			var tdKey = localStorage.tdKey(j);
-			var tdValue = localStorage.getItem(tdKey);
+			var key = localStorage.key(j);
+			var tdValue = localStorage.getItem(key);
 			var tdObj = JSON.parse(tdValue);
 			var tdMakeSubList = $('<ul></ul>');
 			var tdCreateLi = $(
 				"<li>" + tdObj.subject[0] + " " + tdObj.subject[1] + "</li>" +
 				"<li>" + tdObj.todoMess[0] + " " + tdObj.todoMess[1] + "</li>"				
 			);
-			var tdEditClientButton = $("<button data-key='"+tdKey+"'><a href='#todo'> Edit Message</a></button>");
+			var tdEditClientButton = $("<button data-key='"+key+"'><a href='#todo'> Edit Message</a></button>");
 				tdEditClientButton.on('click', function(){
-					tdEditKey = $(this).data('tdKey');
+					tdEditKey = $(this).data('key');
 					tdEditItem(tdEditKey);
 				});
-			var tdDeleteClientButton = $("<button data-key='"+tdKey+"'><a href='#todoForm' id='delete"+tdKey+"'> Delete Message</a></button>");
+			var tdDeleteClientButton = $("<button data-key='"+key+"'><a href='#todoForm' id='delete"+key+"'> Delete Message</a></button>");
 				tdDeleteClientButton.on('click', function(){
-					tdEditKey = $(this).data('tdKey');
+					tdEditKey = $(this).data('key');
 					tdDeleteItem(tdEditKey);
 				});
 		tdMakeSubList.append(tdCreateLi).append(tdEditClientButton).append("<br>").append(tdDeleteClientButton).appendTo("#messList");
