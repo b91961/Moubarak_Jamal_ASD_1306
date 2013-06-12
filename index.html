@@ -23,8 +23,29 @@ ASD 1306
 	
 <body>
 	<section data-role="page" id="home">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 		<div data-role="content">
@@ -34,7 +55,7 @@ ASD 1306
 				<li data-theme="c"><a href="#potClientList" data-transition="none">Potential Jobs</a></li>
 				<li data-theme="c"><a href="#compClientList" data-transition="none">Completed Jobs</a></li>
 				<li data-role="list-divider" >Browse By Client</li>
-				<li data-theme="c"><a href="#" id="displayData" class="displayData" data-transition="none">All Clients</a></li>											
+				<li data-theme="c"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>											
 			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed" data-id="home">
@@ -49,17 +70,37 @@ ASD 1306
 	</section>
 	
 	<section data-role="page" id="info" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 		<ul data-role="listview" data-inset="false" class="ui-icon-alt">
-		    <li><a href="index.html">Home page</a></li>
-		    <li><a href="https://github.com/b91961/Moubarak_Jamal_ASD_1306">Git Repo</a></li>
-		    <li><a href="http://b91961.github.io/Moubarak_Jamal_ASD_1306">Git Pages</a></li>
+		    <li><a href="http://www.eskatech.com">Eskatech.com</a></li>
 		    <li><a href="https://www.facebook.com/night1ife">Facebook</a></li>
 		    <li><a href="https://twitter.com/JamalEskatech"data-ajax="false">Twitter</a></li>
-		    <li><a href="http://www.eskatech.com">Eskatech Web Page</a></li>
+		    <li><a href="http://b91961.github.io/Moubarak_Jamal_ASD_1306">Git Pages</a></li>
+		    <li><a href="https://github.com/b91961/Moubarak_Jamal_ASD_1306">Git Repo</a></li>
 		</ul>
 	
 		<div data-role="footer" data-position="fixed" data-id="home">
@@ -74,13 +115,34 @@ ASD 1306
 	</section>
 	
 	<section data-role="page" id="todo" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
 		<div class="todoTask" data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="true">
-		    <h3>Create A Task</h3>
+		    <h2>Create A Task</h2>
 		    
 	        <form action="#" method="post" id="todoForm" />
 				<h3>Complete form and press send.</h3>					
@@ -95,8 +157,22 @@ ASD 1306
 				
 			<input type="submit" value="Submit" id="submitMessButton" data-role="button" data-theme="a" data-inline="true"><input type="reset" value="Reset" id="resetMessButton" data-role="button" data-theme="c" data-inline="true">
 	        </form>
+	        
 		</div>
-		<tdh><h1>To-Do News Feed</h1></tdh>
+		
+		<header><h2>To-Do News Feed</h2></header>
+	        <div>
+				<a href="#todo"><button id="tdDisplayData" class="tdDisplayData" data-theme="a" data-role="button" value="View Messages"></button></a>
+			</div>
+			<div>
+				<button data-role="button" data-theme="a" value="Clear All Messages" id="tdClearStorage">Clear All Messages</button>
+			</div>
+			
+	        <div data-role="content" >
+				<div id="messList" >
+					
+				</div>
+			</div>
 
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
@@ -110,8 +186,29 @@ ASD 1306
 	</section>
 	
 	<section data-role="page" id="addItem" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
         <p>*Fields are Required</p>
@@ -208,16 +305,35 @@ ASD 1306
 	</section>
 	
 	<section data-role="page" id="clientList" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
     	<section data-role="content">
 			<header><h2>Client List</h2></header>
-			<div>
-				<button data-role="button" data-theme="a" value="Clear All Clients" id="clearStorage">Clear All Clients</button>
-			</div>
+
 			<div data-role="content" >
 				<div id="clList" >
 					
@@ -236,9 +352,30 @@ ASD 1306
 	    </div>
 	</section>
 	
-		<section data-role="page" id="pendClientList" data-add-back-btn="true">
+	<section data-role="page" id="pendClientList" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
@@ -263,9 +400,30 @@ ASD 1306
 	    </div>
 	</section>
 	
-		<section data-role="page" id="potClientList" data-add-back-btn="true">
+	<section data-role="page" id="potClientList" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
@@ -290,9 +448,30 @@ ASD 1306
 	    </div>
 	</section>
 	
-		<section data-role="page" id="compClientList" data-add-back-btn="true">
+	<section data-role="page" id="compClientList" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
 		<header data-role="header" data-position="fixed" >
 			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
@@ -303,6 +482,52 @@ ASD 1306
 				<div id="compClList" >
 					
 				</div>
+			</div>
+    	</section>
+	
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+		    	<ul>
+		        	<li><a href="#home" data-icon="home" >Home</a></li>
+		            <li><a href="#info" data-icon="info" class="ui-btn-active">Info</a></li>
+		            <li><a href="#todo" data-icon="check">To-Do</a></li>
+		        </ul>
+	        </div>
+	    </div>
+	</section>
+	
+	<section data-role="page" id="settings" data-add-back-btn="true">
+		<div data-role="panel" data-position-fixed="false" data-display="overlay" data-theme="a" id="panel">
+	        <ul data-role="listview" data-theme="c" class="nav" data-inset="true">
+	            <li data-icon="minus"><a href="#" data-rel="close">Close menu</a></li>
+            	<li data-theme="a">Navigation</li>
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="plus"><a href="#addItem">Add A New Client</a></li>
+                <li data-icon="star"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a>/li>
+                <li data-icon="info"><a href="#info">Info</a></li>
+                <li data-icon="check"><a href="#todo">To-Do</a></li>
+                <li data-theme="a">Browse by Job Status</li>
+                <li><a href="#pendClientList">Pending Jobs</a></li>
+                <li><a href="#potClientList">Potential Jobs</a></li>
+                <li><a href="#compClientList">Completed Jobs</a></li>
+                <li data-theme="a">Admin</li>
+                <li data-icon="gear"><a href = "#settings">Settings</a></li>
+				<div class="delClients" >
+					<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
+				</div>
+	        </ul>
+		</div>
+		<header data-role="header" data-position="fixed" >
+			<div id="headerLogo"><a href="#home"><img src="img/logo.png" alt="Eskatech Logo"></a></div>
+			<div align="right"><a href="#panel" class="ui-btn-right" data-role="button" data-icon="grid" data-iconpos="notext">Edit</a></div>
+		</header>
+        <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
+
+    	<section data-role="content">
+			<header><h2>Settings</h2></header>
+
+			<div class="delClients" >
+				<button data-role="button" data-icon="delete" data-iconpos="right" data-theme="a" value="Delete All Clients" class="clearStorage">Delete All Clients</button>
 			</div>
     	</section>
 	
