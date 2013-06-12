@@ -108,7 +108,7 @@ $(document).ready(function(){
 		if(tdAsk){
 			localStorage.removeItem(tdEditKey);
 			alert("Message has been deleted!");
-			window.location = "#todo";
+			window.location = "#home";
 			window.location.reload("#");
 		}else{
 			alert("Message was not Deleted!");
@@ -126,9 +126,9 @@ $(document).ready(function(){
 	var tdShowData = function(tdKey){
 		if(localStorage.length === 0){
 			tdAutoFillData();
-			alert("No Messages have been entered yet.                             Here is some sample data.");
+			alert("No Messages have been entered yet.  Here is some sample data.");
 		}
-		$.mobile.changePage("#todo");
+		$.mobile.changePage("#");
 		
 		for (var j=0, l=localStorage.length; j<l; j++) {
 			var tdKey = localStorage.tdKey(j);
@@ -150,6 +150,21 @@ $(document).ready(function(){
 					tdDeleteItem(tdEditKey);
 				});
 		tdMakeSubList.append(tdCreateLi).append(tdEditClientButton).append("<br>").append(tdDeleteClientButton).appendTo("#messList");
+		}
+	};
+	
+	var tdClearStorage = function(){
+		if(localStorage.length === 0){
+			alert("You have no Messages to Clear.");
+		} else {
+			var tdAsk = confirm("Are you sure you want to delete ALL Messages?  This action can NOT be undone!!!");
+			if(tdAsk){
+				localStorage.clear();
+				alert("All Messages have been deleted.");
+				window.location = "#home";
+				window.location.reload("#");
+				return false;
+			}
 		}
 	};
 
@@ -221,7 +236,7 @@ $(document).ready(function(){
 	var showData = function(key){
 		if(localStorage.length === 0){
 			autoFillData();
-			alert("No Clients have been entered yet.                             Here is some sample data.");
+			alert("No Clients have been entered yet.  Here is some sample data.");
 		}
 		$.mobile.changePage("#clientList");
 		
@@ -261,7 +276,7 @@ $(document).ready(function(){
 		if(localStorage.length === 0){
 			alert("You have no Clients to Clear.");
 		} else {
-			var ask = confirm("Are you sure you want to delete ALL Clients?              This action can NOT be undone!!!");
+			var ask = confirm("Are you sure you want to delete ALL Clients?  This action can NOT be undone!!!");
 			if(ask){
 				localStorage.clear();
 				alert("All clients have been deleted.");
