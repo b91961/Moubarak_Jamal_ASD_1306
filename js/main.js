@@ -25,7 +25,7 @@ $(document).ready(function(){
 		// Dropdown for radios.
 		$(document).ready(function(){
 		    $("#effect").css("display","none");
-		        $(".Pending").bind('click', function(e){
+		        $(".Status").bind('click', function(e){
 		        if ($('input[name=status]:checked').val() === "Completed" ) {
 		            $("#effect").slideDown("fast");
 		        } else {
