@@ -23,16 +23,14 @@ $(document).ready(function(){
 	$('#addItem').on('pageinit', function() {
 	
 		// Dropdown for radios.
-		$(document).ready(function(){
-		    $("#effect").css("display","none");
-		        $(".Status").bind('click', function(e){
-		        if ($('input[name=status]:checked').val() === "Completed" ) {
-		            $("#effect").slideDown("fast");
-		        } else {
-		            $("#effect").slideUp("fast");
-		        }
-		     });
-		});
+	    $("#effect").css("display","none");
+	        $(".Status").bind('click', function(e){
+	        if ($('input[name=status]:checked').val() === "Completed" ) {
+	            $("#effect").slideDown("fast");
+	        } else {
+	            $("#effect").slideUp("fast");
+	        }
+	     });
 	
 		// Form Validator for client Install Form.
 		var ciForm = $('#clientInstallForm');
@@ -71,10 +69,11 @@ $(document).ready(function(){
 	var editKey = "";
 
 	var saveData = function(){
+		var id;
 		if(!editKey) {
-			var id = Math.floor(Math.random()*100000001);
+			id = Math.floor(Math.random()*100000001);
 		} else {
-			var id = editKey;
+			id = editKey;
 		}
 		
 		var item                = {};
@@ -92,8 +91,43 @@ $(document).ready(function(){
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Client Information is Saved!");
 			console.log(id);
+			window.location = "#home";
 			window.location.reload("#");
 			return false;
+	};
+	
+	var autoFillData = function(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	};
+	
+	var deleteItem = function(editKey) {
+		var ask = confirm("Are you sure you want to delete this contact?");
+		if(ask){
+			localStorage.removeItem(editKey);
+			alert("Client has been deleted!");
+			window.location = "#home";
+			window.location.reload("#");
+		}else{
+			alert("Client was not Deleted!");
+		}	
+	};
+	
+	var editItem = function(editKey) {
+		var rad = ("#clientInstallForm :radio:checked + label");
+		var items = JSON.parse(localStorage.getItem(editKey));
+			$("#group").val(items.group[1]);
+			$("#compname").val(items.compname[1]);
+			$("#contname").val(items.contname[1]);
+			$("#contphone").val(items.contphone[1]);
+			$("#contemail").val(items.contemail[1]);
+			$("#date").val(items.date[1]);
+			$("#networkNotes").val(items.networkNotes[1]);
+			$("#notes").val(items.notes[1]);
+			$('#submitButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Client');
+			$("#submitButton").val('Update Client').data('key', editKey);	
 	};
 	
 	var showData = function(key){
@@ -121,7 +155,7 @@ $(document).ready(function(){
 				"<li>" + obj.networkNotes[0] + " " + obj.networkNotes[1] + "</li>" +
 				"<li>" + obj.notes[0] + " " + obj.notes[1] + "</li>"				
 			);
-			var editClientButton = $("<button data-key='"+key+"'><a href='#clientInstallForm'> Edit Client</a></button>");
+			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem'> Edit Client</a></button>");
 				editClientButton.on('click', function(){
 					editKey = $(this).data('key');
 					editItem(editKey);
@@ -131,42 +165,11 @@ $(document).ready(function(){
 					editKey = $(this).data('key');
 					deleteItem(editKey);
 				});
-		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#edDelBut");
+		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#clList");
 		}
 	};
 
-	var deleteItem = function(editKey) {
-		var ask = confirm("Are you sure you want to delete this contact?");
-		if(ask){
-			localStorage.removeItem(editKey);
-			alert("Client has been deleted!");
-			window.location = "#clientInstallForm";
-			window.location.reload("#");
-		}else{
-			alert("Client was not Deleted!");
-		}	
-	};
-	
-	var editItem = function(editKey) {
-		var item = JSON.parse(localStorage.getItem(editKey));
-		$("#group").val(item.group[1]);
-		$("#compname").val(item.compname[1]);
-		$("#contname").val(item.contname[1]);
-		$("#contphone").val(item.contphone[1]);
-		$("#contemail").val(item.contemail[1]);
-		$("#date").val(item.date[1]);
-		$("#networkNotes").val(item.networkNotes[1]);
-		$("#notes").val(item.notes[1]);
-		$('#submitButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Client');
-		$("#submitButton").val('Update Client').data('key', editKey);	
-	};
-	
-	var autoFillData = function(){
-		for(var n in json){
-			var id = Math.floor(Math.random()*100000001);
-			localStorage.setItem(id, JSON.stringify(json[n]));
-		}
-	};
+
 	
 	var clearStorage = function(){
 		if(localStorage.length === 0){
@@ -174,7 +177,8 @@ $(document).ready(function(){
 		} else {
 			localStorage.clear();
 			alert("All clients have been deleted.");
-			window.location.reload("#addItem");
+			window.location = "#home";
+			window.location.reload("#");
 			return false;
 		}
 	};
