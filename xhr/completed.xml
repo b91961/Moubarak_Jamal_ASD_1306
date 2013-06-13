@@ -1,0 +1,158 @@
+<compClList>
+	<completed>
+		<id>12345678</id>,
+		<group>POS</group>,
+		<compName>Eskatech</compName>,
+		<contName>Jamal Moubarak</contName>,
+		<contPhone>734-819-1211</contPhone>,
+		<contEmail>jamal@eskatech.com</contEmail>,
+		<status>Completed</status>,
+		<date>2013-03-14</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.1.1, admin, admin</networkNotes>,
+		<notes>We installed 4 POS systems at the front counter off of a network switch we installed</notes>
+	</completed>
+	<completed>
+		<id>87654321</id>,
+		<group>Surveillance</group>,
+		<compName>Fairfield Inn</compName>,
+		<contName>John Smith</contName>,
+		<contPhone>555-555-2233</contPhone>,
+		<contEmail>john@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2013-03-13</date>,
+		<paymentStat>Partial</paymentStat>,
+		<networkNotes>192.168.001.100, john, 123456</networkNotes>,
+		<notes>We installed 8 cams 1st floor, 8 2nd floor, 8 3rd floor, 8 outside</notes>
+	</completed>
+	<completed>
+		<id>98765432</id>,
+		<group>AudioVideo</group>,
+		<compName>Petes Garage</compName>,
+		<contName>Pete George</contName>,
+		<contPhone>555-555-2222</contPhone>,
+		<contEmail>pete@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2013-01-24</date>,
+		<paymentStat>No</paymentStat>,
+		<networkNotes>192.168.000.99, guest, 123456</networkNotes>,
+		<notes>We installed 4 speakers in the customer area and install a password protected linksys router so they can give wifi to customers.</notes>
+	</completed>
+	<completed>
+		<id>98585054</id>,
+		<group>Surveillance</group>,
+		<compName>ParAid Medical</compName>,
+		<contName>Allan Marsh</contName>,
+		<contPhone>412-319-3900</contPhone>,
+		<contEmail>allanmarsh@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-07-14</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.1.220, Allan, 123456</networkNotes>,
+		<notes>This is another Test.</notes>
+	</completed>
+	<completed>
+		<id>71434983</id>,
+		<group>Network</group>,
+		<compName>HAAS Automation</compName>,
+		<contName>Alex May</contName>,
+		<contPhone>724-218-2800</contPhone>,
+		<contEmail>alexmay@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-02-21</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.2.1, admin, password</networkNotes>,
+		<notes>Alex is a great contact person to have.</notes>
+	</completed>
+	<completed>
+		<id>35133340</id>,
+		<group>Network</group>,
+		<compName>Wireless Boys</compName>,
+		<contName>Donald Chung</contName>,
+		<contPhone>412-208-2828</contPhone>,
+		<contEmail>donaldchung@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-10-04</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>72.124.168.153, donald, 111111</networkNotes>,
+		<notes>We installed WiFi for the customers to use when in the store.</notes>
+	</completed>
+	<completed>
+		<id>44637039</id>,
+		<group>AudioVideo</group>,
+		<compName>Ford Motor Company</compName>,
+		<contName>Paul Woods</contName>,
+		<contPhone>412-481-6022</contPhone>,
+		<contEmail>paulwoods@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2011-08-08</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>Network and Login Info:", "192.168.1.1, paul, woods</networkNotes>,
+		<notes>We installed 16 speakers in the employee break areas.</notes>
+	</completed>
+	<completed>
+		<id>65748084</id>,
+		<group>POS</group>,
+		<compName>Liban Cafe</compName>,
+		<contName>Karen Puckett</contName>,
+		<contPhone>412-714-7400</contPhone>,
+		<contEmail>karenpuckett@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2011-03-17</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.0.127, admin, libancafe</networkNotes>,
+		<notes>We installed 1 POS system at the customer checkout area.</notes>
+	</completed>
+	<completed>
+		<id>24155242</id>,
+		<group>Network</group>,
+		<compName>Blue Agave</compName>,
+		<contName>Marion Moon</contName>,
+		<contPhone>724-206-2600</contPhone>,
+		<contEmail>marionmoon@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-07-07</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.169.0.99, marion, 888888</networkNotes>,
+		<notes>We installed a wireless access point and a sonic firewall for free wi-fi</notes>
+	</completed>
+	<completed>
+		<id>15182557</id>,
+		<group>AudioVideo</group>,
+		<compName>Detroit Auto</compName>,
+		<contName>Jason Cross</contName>,
+		<contPhone>724-594-1594</contPhone>,
+		<contEmail>jasoncross@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-02-14</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>72.240.153.153, admin1, admin</networkNotes>,
+		<notes>We installed 20 tv's for customers to view specials on while in the store.</notes>
+	</completed>
+	<completed>
+		<id>21754202</id>,
+		<group>Surveillance</group>,
+		<compName>Haggopian</compName>,
+		<contName>Brian Hall</contName>,
+		<contPhone>724-653-1653</contPhone>,
+		<contEmail>brianhall@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2012-03-20</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.1.110, brian, admin</networkNotes>,
+		<notes>We installed 16 cameras throughout the warehouse.</notes>
+	</completed>
+	<completed>
+		<id>22364117</id>,
+		<group>AudioVideo</group>,
+		<compName>Sloan Industries</compName>,
+		<contName>Lynne Rose</contName>,
+		<contPhone>734-802-8679</contPhone>,
+		<contEmail>lynnerose@gmail.com</contEmail>,
+		<status>Completed</status>,
+		<date>2013-01-23</date>,
+		<paymentStat>Yes</paymentStat>,
+		<networkNotes>192.168.0.153, guest, guest</networkNotes>,
+		<notes>We installed 4 speakers in the office area hooked up to a receiver that they play pandora off of.</notes>
+	</completed>
+</completedPips>

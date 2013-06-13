@@ -37,3 +37,6 @@ ul li{
 h2 {
 	text-align: center;
 }
+.pendClList {
+	display: list-item;
+}

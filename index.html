@@ -51,9 +51,9 @@ ASD 1306
 		<div data-role="content">
 			<ul data-role="listview" data-inset="true" data-divider-theme="a">
 				<li data-role="list-divider" >Browse By Job Status</li>
-				<li data-theme="c"><a href="#pendClientList" data-transition="none">Pending Jobs</a></li>
-				<li data-theme="c"><a href="#potClientList" data-transition="none">Potential Jobs</a></li>
-				<li data-theme="c"><a href="#compClientList" data-transition="none">Completed Jobs</a></li>
+				<li data-theme="c"><a href="#pendClientList" id="pendBut" data-transition="none">Pending Jobs</a></li>
+				<li data-theme="c"><a href="#potClientList" id="potBut" data-transition="none">Potential Jobs</a></li>
+				<li data-theme="c"><a href="#compClientList" id="compBut" data-transition="none">Completed Jobs</a></li>
 				<li data-role="list-divider" >Browse By Client</li>
 				<li data-theme="c"><a href="#" id="displayData" class="displayData" data-transition="none">View All Clients</a></li>											
 			</ul>
@@ -141,7 +141,7 @@ ASD 1306
 		</header>
         <a href="#addItem" id="cta"><div><img id="cta" src="img/ctaIndex.png" alt="Customer Service"></div></a>
 
-		<div class="todoTask" data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="true">
+		<div class="todoTask" data-role="collapsible" id="tdDropdown" data-theme="a" data-content-theme="d" data-inset="true">
 		    <h2>Create A Task</h2>
 		    
 	        <form action="#" method="post" id="todoForm" />
@@ -175,12 +175,6 @@ ASD 1306
 				</div>
 			</div>
 			
-			<div>
-				<a href="#todo"><button id="tdDisplayData" class="tdDisplayData" data-theme="a" data-role="button" value="View Messages"></button></a>
-			</div>
-			<div>
-				<button data-role="button" data-theme="a" value="Clear All Messages" id="tdClearStorage">Clear All Messages</button>
-			</div>
 
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
