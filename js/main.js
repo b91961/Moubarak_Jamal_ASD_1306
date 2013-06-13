@@ -134,12 +134,12 @@ $(document).ready(function(){
 			var key = localStorage.key(j);
 			var tdValue = localStorage.getItem(key);
 			var tdObj = JSON.parse(tdValue);
-			var tdMakeSubList = $('<ul></ul>');
+			var tdMakeSubList = $('<div></div>');
 			var tdCreateLi = $(
-				"<li>" + tdObj.subject[0] + " " + tdObj.subject[1] + "</li>" +
-				"<li>" + tdObj.todoMess[0] + " " + tdObj.todoMess[1] + "</li>"				
+				"<p>" + tdObj.subject[0] + " " + tdObj.subject[1] + "</p>" +
+				"<p>" + tdObj.todoMess[0] + " " + tdObj.todoMess[1] + "</p>"				
 			);
-			var tdEditClientButton = $("<button data-key='"+key+"'><a href='#todo'> Edit Message</a></button>");
+			var tdEditClientButton = $("<button data-key='"+key+"'><a href='#todo' id='tdEditClientButton'> Edit Message</a></button>");
 				tdEditClientButton.on('click', function(){
 					tdEditKey = $(this).data('key');
 					tdEditItem(tdEditKey);
@@ -152,6 +152,10 @@ $(document).ready(function(){
 		tdMakeSubList.append(tdCreateLi).append(tdEditClientButton).append("<br>").append(tdDeleteClientButton).appendTo("#messList");
 		}
 	};
+	
+	$("#tdEditClientButton").click(function(){
+		$("#tdDropdown").trigger('click');
+	});
 	
 	var tdClearStorage = function(){
 		if(localStorage.length === 0){
@@ -182,10 +186,10 @@ $(document).ready(function(){
 		var item                = {};
 			item.id             = ["Client ID:", id];
 			item.group 			= ["Install:", $("#groups").val()];
-			item.compname		= ["Company Name:", $("#compname").val()];
-			item.contname		= ["Contact Name:", $("#contname").val()];
-			item.contphone		= ["Contact Phone #:", $("#contphone").val()];
-			item.contemail		= ["Contact Email:", $("#contemail").val()];
+			item.compName		= ["Company Name:", $("#compname").val()];
+			item.contName		= ["Contact Name:", $("#contname").val()];
+			item.contPhone		= ["Contact Phone #:", $("#contphone").val()];
+			item.contEmail		= ["Contact Email:", $("#contemail").val()];
 			item.status         = ["Job Status:", $("#clientInstallForm :radio:checked + label").text()];
 			item.date           = ["Date Completed:", $("#date").val()];
 			item.paymentStat    = ["Payment Status:", $("#clientInstallForm ol :radio:checked + label").text()];
@@ -219,13 +223,13 @@ $(document).ready(function(){
 	};
 	
 	var editItem = function(editKey) {
-		var rad = ("#clientInstallForm :radio:checked + label");
+		//var rad = ("#clientInstallForm :radio:checked + label");
 		var items = JSON.parse(localStorage.getItem(editKey));
 			$("#group").val(items.group[1]);
-			$("#compname").val(items.compname[1]);
-			$("#contname").val(items.contname[1]);
-			$("#contphone").val(items.contphone[1]);
-			$("#contemail").val(items.contemail[1]);
+			$("#compName").val(items.compName[1]);
+			$("#contName").val(items.contName[1]);
+			$("#contPhone").val(items.contPhone[1]);
+			$("#contEmail").val(items.contEmail[1]);
 			$("#date").val(items.date[1]);
 			$("#networkNotes").val(items.networkNotes[1]);
 			$("#notes").val(items.notes[1]);
@@ -244,26 +248,28 @@ $(document).ready(function(){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			var makeSubList = $('<ul></ul>');
+			var makeSubList = $('<div></div>');
 			var createLi = $(
-				"<li>" + obj.id[0] + " " + obj.id[1] + "</li>" +
-				"<li>" + obj.group[0] + " " + obj.group[1] + "</li>" +
-				"<li>" + obj.compname[0] + " " + obj.compname[1] + "</li>" +
-				"<li>" + obj.contname[0] + " " + obj.contname[1] + "</li>" +
-				"<li>" + obj.contphone[0] + " " + obj.contphone[1] + "</li>" +
-				"<li>" + obj.contemail[0] + " " + obj.contemail[1] + "</li>" +
-				"<li>" + obj.status[0] + " " + obj.status[1] + "</li>" +
-				"<li>" + obj.date[0] + " " + obj.date[1] + "</li>" +
-				"<li>" + obj.paymentStat[0] + " " + obj.paymentStat[1] + "</li>" +
-				"<li>" + obj.networkNotes[0] + " " + obj.networkNotes[1] + "</li>" +
-				"<li>" + obj.notes[0] + " " + obj.notes[1] + "</li>"				
+				'<ul>'+
+					'<li>' + obj.id[0] + " " + obj.id[1] + '</li>' +
+					'<li>' + obj.group[0] + " " + obj.group[1] + '</li>' +
+					'<li>' + obj.compName[0] + " " + obj.compName[1] + '</li>' +
+					'<li>' + obj.contName[0] + " " + obj.contName[1] + '</li>' +
+					'<li>' + obj.contPhone[0] + " " + obj.contPhone[1] + '</li>' +
+					'<li>' + obj.contEmail[0] + " " + obj.contEmail[1] + '</li>' +
+					'<li>' + obj.status[0] + " " + obj.status[1] + '</li>' +
+					'<li>' + obj.date[0] + " " + obj.date[1] + '</li>' +
+					'<li>' + obj.paymentStat[0] + " " + obj.paymentStat[1] + '</li>' +
+					'<li>' + obj.networkNotes[0] + " " + obj.networkNotes[1] + '</li>' +
+					'<li>' + obj.notes[0] + " " + obj.notes[1] + '</li>' +
+				'</ul>'				
 			);
-			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem'> Edit Client</a></button>");
+			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem' class='editBut'> Edit Client</a></button>");
 				editClientButton.on('click', function(){
 					editKey = $(this).data('key');
 					editItem(editKey);
 				});
-			var deleteClientButton = $("<button data-key='"+key+"'><a href='#clientInstallForm' id='delete"+key+"'> Delete Client</a></button>");
+			var deleteClientButton = $("<button data-key='"+key+"'><a href='#clientInstallForm' id='delete'"+key+"'> Delete Client</a></button>");
 				deleteClientButton.on('click', function(){
 					editKey = $(this).data('key');
 					deleteItem(editKey);
@@ -271,6 +277,114 @@ $(document).ready(function(){
 		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#clList");
 		}
 	};
+	
+	$('#pendBut').on('click', function () {
+		$.mobile.changePage('#pendClientList',{});
+		$('#pendClList').empty();
+		$.ajax({
+			url			:	'xhr/pending.php',
+			type		:	'GET',
+			dataType	:	'json',
+			success		:	function(response) {
+				for(var i=0, j=response.pendClList.length; i<j; i++){
+					var pend = response.pendClList[i];
+					$(''+
+						'<div class="pendCl">'+
+							'<ul>'+
+								'<li>' + 'Client ID: ' + pend.id + '</li>' +
+								'<li>' + 'Install: ' + pend.group + '</li>' +
+								'<li>' + 'Company Name: ' + pend.compName + '</li>' +
+								'<li>' + 'Contact Name: ' + pend.contName + '</li>' +
+								'<li>' + 'Contact Phone #: ' + pend.contPhone + '</li>' +
+								'<li>' + 'Contact Email: ' + pend.contEmail + '</li>' + 
+								'<li>' + 'Job Status: ' + pend.status + '</li>' + 
+								'<li>' + 'Date Completed: ' + pend.date + '</li>' +
+								'<li>' + 'Payment Status: ' + pend.paymentStat + '</li>' +
+								'<li>' + 'Network and Login Info: ' + pend.networkNotes + '</li>' + 
+								'<li>' + 'Notes: ' + pend.notes + '</li>' +
+							'</ul>'+
+						'</div>'
+					).appendTo('#pendClList');
+				};
+			}
+		});
+	});
+	
+	$('#potBut').on('click', function () {
+		$.mobile.changePage('#potClientList',{});
+		$('#potClList').empty();
+		$.ajax({
+			url			:	'xhr/potential.php',
+			type		:	'GET',
+			dataType	:	'json',
+			success		:	function(response) {
+				for(var i=0, j=response.potClList.length; i<j; i++){
+					var pot = response.potClList[i];
+					$(''+
+						'<div class="potCl">'+
+							'<ul>'+
+								'<li>' + 'Client ID: ' + pot.id + '</li>' +
+								'<li>' + 'Install: ' + pot.group + '</li>' +
+								'<li>' + 'Company Name: ' + pot.compName + '</li>' +
+								'<li>' + 'Contact Name: ' + pot.contName + '</li>' +
+								'<li>' + 'Contact Phone #: ' + pot.contPhone + '</li>' +
+								'<li>' + 'Contact Email: ' + pot.contEmail + '</li>' + 
+								'<li>' + 'Job Status: ' + pot.status + '</li>' + 
+								'<li>' + 'Date Completed: ' + pot.date + '</li>' +
+								'<li>' + 'Payment Status: ' + pot.paymentStat + '</li>' +
+								'<li>' + 'Network and Login Info: ' + pot.networkNotes + '</li>' + 
+								'<li>' + 'Notes: ' + pot.notes + '</li>' +
+							'</ul>'+
+						'</div>'
+					).appendTo('#potClList');
+				};
+			}
+		});
+	});
+	
+	$('#compBut').on('click', function () {
+		$.mobile.changePage('#compClientList',{});
+		$('#compClList').empty();
+		$.ajax({
+			url			:	'xhr/completed.xml',
+			type		:	'GET',
+			dataType	:	'xml',
+			success		:	function(xml) {
+			console.log(xml);
+				$(xml).find('completed').each(function(){
+				var completed = {};
+					completed.id = $(this).find("id").text();
+					completed.group = $(this).find("group").text();
+					completed.compName = $(this).find("compName").text();
+					completed.contName = $(this).find("contName").text();
+					completed.contPhone = $(this).find("contPhone").text();
+					completed.contEmail = $(this).find("contEmail").text();
+					completed.status = $(this).find("status").text();
+					completed.date = $(this).find("date").text();
+					completed.paymentStat = $(this).find("paymentStat").text();
+					completed.networkNotes = $(this).find("networkNotes").text();
+					completed.notes = $(this).find("notes").text();
+					$(''+
+						'<div class="compCl">'+
+							'<ul>'+
+								'<li>' + 'Client ID: ' + completed.id + '</li>' +
+								'<li>' + 'Install: ' + completed.group + '</li>' +
+								'<li>' + 'Company Name: ' + completed.compName + '</li>' +
+								'<li>' + 'Contact Name: ' + completed.contName + '</li>' +
+								'<li>' + 'Contact Phone #: ' + completed.contPhone + '</li>' +
+								'<li>' + 'Contact Email: ' + completed.contEmail + '</li>' + 
+								'<li>' + 'Job Status: ' + completed.status + '</li>' + 
+								'<li>' + 'Date Completed: ' + completed.date + '</li>' +
+								'<li>' + 'Payment Status: ' + completed.paymentStat + '</li>' +
+								'<li>' + 'Network and Login Info: ' + completed.networkNotes + '</li>' + 
+								'<li>' + 'Notes: ' + completed.notes + '</li>' +
+							'</ul>'+
+						'</div>'
+					).appendTo('#compClList');
+				});
+			}
+		});
+	});
 	
 	var clearStorage = function(){
 		if(localStorage.length === 0){
