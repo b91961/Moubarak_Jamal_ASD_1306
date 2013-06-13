@@ -32,12 +32,12 @@ $(document).ready(function(){
 	$('#addItem').on('pageinit', function() {
 	
 		// Dropdown for radios.
-	    $("#effect").css("display","none");
-	        $(".Status").bind('click', function(e){
-	        if ($('input[name=status]:checked').val() === "Completed" ) {
-	            $("#effect").slideDown("fast");
+	    $('#effect').css('display','none');
+	        $('.Status').bind('click', function(e){
+	        if ($('input[name=status]:checked').val() === 'Completed' ) {
+	            $('#effect').slideDown('fast');
 	        } else {
-	            $("#effect").slideUp("fast");
+	            $('#effect').slideUp('fast');
 	        }
 	     });
 	
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 // All functions go below here.
 
-	var tdEditKey = "";
+	var tdEditKey = '';
 
 	var storeData = function(){
 		var tdId;
@@ -86,13 +86,13 @@ $(document).ready(function(){
 		}
 		
 		var tdItem          = {};
-			tdItem.subject  = ["Subject:", $("#subject").val()];
-			tdItem.message 	= ["Message:", $("#todomess").val()];
+			tdItem.subject  = ['Subject:', $('#subject').val()];
+			tdItem.message 	= ['Message:', $('#todomess').val()];
 			localStorage.setItem(tdId, JSON.stringify(tdItem));
-			alert("To-Do Message has been sent!");
+			alert('To-Do Message has been sent!');
 			console.log(tdId);
-			window.location = "#todo";
-			window.location.reload("#");
+			window.location = '#todo';
+			window.location.reload('#');
 			return false;
 	};
 	
@@ -104,31 +104,31 @@ $(document).ready(function(){
 	};
 	
 		var tdDeleteItem = function(tdEditKey) {
-		var tdAsk = confirm("Are you sure you want to delete this message?");
+		var tdAsk = confirm('Are you sure you read this message? Message will be deleted!');
 		if(tdAsk){
 			localStorage.removeItem(tdEditKey);
-			alert("Message has been deleted!");
-			window.location = "#home";
-			window.location.reload("#");
+			alert('Message has been removed!');
+			window.location = '#home';
+			window.location.reload('#');
 		}else{
-			alert("Message was not Deleted!");
+			alert('Message was not Deleted!');
 		}	
 	};
 	
 	var tdEditItem = function(tdEditKey) {
 		var tdItems = JSON.parse(localStorage.getItem(tdEditKey));
-			$("#subject").val(tdItems.subject[1]);
-			$("#todoMess").val(tdItems.todoMess[1]);
+			$('#subject').val(tdItems.subject[1]);
+			$('#todoMess').val(tdItems.todoMess[1]);
 			$('#submitMessButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Message');
-			$("#submitMessButton").val('Update Message').data('key', tdEditKey);	
+			$('#submitMessButton').val('Update Message').data('key', tdEditKey);	
 	};
 	
 	var tdShowData = function(key){
 		if(localStorage.length === 0){
 			tdAutoFillData();
-			alert("No Messages have been entered yet.  Here is some sample data.");
+			alert('No Messages have been entered yet.  Here is some sample data.');
 		}
-		$.mobile.changePage("#");
+		$.mobile.changePage('#');
 		
 		for (var j=0, l=localStorage.length; j<l; j++) {
 			var key = localStorage.key(j);
@@ -136,44 +136,44 @@ $(document).ready(function(){
 			var tdObj = JSON.parse(tdValue);
 			var tdMakeSubList = $('<div></div>');
 			var tdCreateLi = $(
-				"<p>" + tdObj.subject[0] + " " + tdObj.subject[1] + "</p>" +
-				"<p>" + tdObj.todoMess[0] + " " + tdObj.todoMess[1] + "</p>"				
+				'<p>' + tdObj.subject[0] + ' ' + tdObj.subject[1] + '</p>' +
+				'<p>' + tdObj.todoMess[0] + ' ' + tdObj.todoMess[1] + '</p>'				
 			);
 			var tdEditClientButton = $("<button data-key='"+key+"'><a href='#todo' id='tdEditClientButton'> Edit Message</a></button>");
 				tdEditClientButton.on('click', function(){
 					tdEditKey = $(this).data('key');
 					tdEditItem(tdEditKey);
 				});
-			var tdDeleteClientButton = $("<button data-key='"+key+"'><a href='#todoForm' id='delete"+key+"'> Delete Message</a></button>");
+			var tdDeleteClientButton = $("<button data-key='"+key+"'><a href='#todoForm' id='delete"+key+"'> Message Seen</a></button>");
 				tdDeleteClientButton.on('click', function(){
 					tdEditKey = $(this).data('key');
 					tdDeleteItem(tdEditKey);
 				});
-		tdMakeSubList.append(tdCreateLi).append(tdEditClientButton).append("<br>").append(tdDeleteClientButton).appendTo("#messList");
+		tdMakeSubList.append(tdCreateLi).append(tdDeleteClientButton).append(tdEditClientButton).appendTo('#messList');
 		}
 	};
 	
-	$("#tdEditClientButton").click(function(){
-		$("#tdDropdown").trigger('click');
+	$('#tdEditClientButton').click(function(){
+		$('#tdDropdown').trigger('click');
 	});
 	
 	var tdClearStorage = function(){
 		if(localStorage.length === 0){
-			alert("You have no Messages to Clear.");
+			alert('You have no Messages to Clear.');
 		} else {
-			var tdAsk = confirm("Are you sure you want to delete ALL Messages?  This action can NOT be undone!!!");
+			var tdAsk = confirm('Are you sure you want to delete ALL Messages?  This action can NOT be undone!!!');
 			if(tdAsk){
 				localStorage.clear();
-				alert("All Messages have been deleted.");
-				window.location = "#home";
-				window.location.reload("#");
+				alert('All Messages have been deleted.');
+				window.location = '#home';
+				window.location.reload('#');
 				return false;
 			}
 		}
 	};
 
 
-	var editKey = "";
+	var editKey = '';
 
 	var saveData = function(){
 		var id;
@@ -184,22 +184,22 @@ $(document).ready(function(){
 		}
 		
 		var item                = {};
-			item.id             = ["Client ID:", id];
-			item.group 			= ["Install:", $("#groups").val()];
-			item.compName		= ["Company Name:", $("#compname").val()];
-			item.contName		= ["Contact Name:", $("#contname").val()];
-			item.contPhone		= ["Contact Phone #:", $("#contphone").val()];
-			item.contEmail		= ["Contact Email:", $("#contemail").val()];
-			item.status         = ["Job Status:", $("#clientInstallForm :radio:checked + label").text()];
-			item.date           = ["Date Completed:", $("#date").val()];
-			item.paymentStat    = ["Payment Status:", $("#clientInstallForm ol :radio:checked + label").text()];
-			item.networkNotes	= ["Network and Login Info:", $("#networkNotes").val()];
-			item.notes			= ["Notes:", $("#notes").val()];
+			item.id             = ['Client ID:', id];
+			item.group 			= ['Install:', $('#groups').val()];
+			item.compName		= ['Company Name:', $('#compname').val()];
+			item.contName		= ['Contact Name:', $('#contname').val()];
+			item.contPhone		= ['Contact Phone #:', $('#contphone').val()];
+			item.contEmail		= ['Contact Email:', $('#contemail').val()];
+			item.status         = ['Job Status:', $('#clientInstallForm :radio:checked + label').text()];
+			item.date           = ['Date Completed:', $('#date').val()];
+			item.paymentStat    = ['Payment Status:', $('#clientInstallForm ol :radio:checked + label').text()];
+			item.networkNotes	= ['Network and Login Info:', $('#networkNotes').val()];
+			item.notes			= ['Notes:', $('#notes').val()];
 			localStorage.setItem(id, JSON.stringify(item));
-			alert("Client Information is Saved!");
+			alert('Client Information is Saved!');
 			console.log(id);
-			window.location = "#home";
-			window.location.reload("#");
+			window.location = '#home';
+			window.location.reload('#');
 			return false;
 	};
 	
@@ -211,38 +211,38 @@ $(document).ready(function(){
 	};
 	
 	var deleteItem = function(editKey) {
-		var ask = confirm("Are you sure you want to delete this contact?");
+		var ask = confirm('Are you sure you want to delete this contact?');
 		if(ask){
 			localStorage.removeItem(editKey);
-			alert("Client has been deleted!");
-			window.location = "#home";
-			window.location.reload("#");
+			alert('Client has been deleted!');
+			window.location = '#home';
+			window.location.reload('#');
 		}else{
-			alert("Client was not Deleted!");
+			alert('Client was not Deleted!');
 		}	
 	};
 	
 	var editItem = function(editKey) {
-		//var rad = ("#clientInstallForm :radio:checked + label");
+		var rad = ('#clientInstallForm :radio:checked + label');
 		var items = JSON.parse(localStorage.getItem(editKey));
-			$("#group").val(items.group[1]);
-			$("#compName").val(items.compName[1]);
-			$("#contName").val(items.contName[1]);
-			$("#contPhone").val(items.contPhone[1]);
-			$("#contEmail").val(items.contEmail[1]);
-			$("#date").val(items.date[1]);
-			$("#networkNotes").val(items.networkNotes[1]);
-			$("#notes").val(items.notes[1]);
+			$('#group').val(items.group[1]);
+			$('#compName').val(items.compName[1]);
+			$('#contName').val(items.contName[1]);
+			$('#contPhone').val(items.contPhone[1]);
+			$('#contEmail').val(items.contEmail[1]);
+			$('#date').val(items.date[1]);
+			$('#networkNotes').val(items.networkNotes[1]);
+			$('#notes').val(items.notes[1]);
 			$('#submitButton').prev('.ui-btn-inner').children('.ui-btn-text').html('Update Client');
-			$("#submitButton").val('Update Client').data('key', editKey);	
+			$('#submitButton').val('Update Client').data('key', editKey);	
 	};
 	
 	var showData = function(key){
 		if(localStorage.length === 0){
 			autoFillData();
-			alert("No Clients have been entered yet.  Here is some sample data.");
+			alert('No Clients have been entered yet.  Here is some sample data.');
 		}
-		$.mobile.changePage("#clientList");
+		$.mobile.changePage('#clientList');
 		
 		for (var i=0, len=localStorage.length; i<len; i++) {
 			var key = localStorage.key(i);
@@ -251,17 +251,17 @@ $(document).ready(function(){
 			var makeSubList = $('<div></div>');
 			var createLi = $(
 				'<ul>'+
-					'<li>' + obj.id[0] + " " + obj.id[1] + '</li>' +
-					'<li>' + obj.group[0] + " " + obj.group[1] + '</li>' +
-					'<li>' + obj.compName[0] + " " + obj.compName[1] + '</li>' +
-					'<li>' + obj.contName[0] + " " + obj.contName[1] + '</li>' +
-					'<li>' + obj.contPhone[0] + " " + obj.contPhone[1] + '</li>' +
-					'<li>' + obj.contEmail[0] + " " + obj.contEmail[1] + '</li>' +
-					'<li>' + obj.status[0] + " " + obj.status[1] + '</li>' +
-					'<li>' + obj.date[0] + " " + obj.date[1] + '</li>' +
-					'<li>' + obj.paymentStat[0] + " " + obj.paymentStat[1] + '</li>' +
-					'<li>' + obj.networkNotes[0] + " " + obj.networkNotes[1] + '</li>' +
-					'<li>' + obj.notes[0] + " " + obj.notes[1] + '</li>' +
+					'<li>' + obj.id[0] + ' ' + obj.id[1] + '</li>' +
+					'<li>' + obj.group[0] + ' ' + obj.group[1] + '</li>' +
+					'<li>' + obj.compName[0] + ' ' + obj.compName[1] + '</li>' +
+					'<li>' + obj.contName[0] + ' ' + obj.contName[1] + '</li>' +
+					'<li>' + obj.contPhone[0] + ' ' + obj.contPhone[1] + '</li>' +
+					'<li>' + obj.contEmail[0] + ' ' + obj.contEmail[1] + '</li>' +
+					'<li>' + obj.status[0] + ' ' + obj.status[1] + '</li>' +
+					'<li>' + obj.date[0] + ' ' + obj.date[1] + '</li>' +
+					'<li>' + obj.paymentStat[0] + ' ' + obj.paymentStat[1] + '</li>' +
+					'<li>' + obj.networkNotes[0] + ' ' + obj.networkNotes[1] + '</li>' +
+					'<li>' + obj.notes[0] + ' ' + obj.notes[1] + '</li>' +
 				'</ul>'				
 			);
 			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem' class='editBut'> Edit Client</a></button>");
@@ -274,7 +274,7 @@ $(document).ready(function(){
 					editKey = $(this).data('key');
 					deleteItem(editKey);
 				});
-		makeSubList.append(createLi).append(editClientButton).append("<br>").append(deleteClientButton).appendTo("#clList");
+		makeSubList.append(createLi).append(editClientButton).append(deleteClientButton).appendTo('#clList');
 		}
 	};
 	
@@ -286,6 +286,7 @@ $(document).ready(function(){
 			type		:	'GET',
 			dataType	:	'json',
 			success		:	function(response) {
+			alert('No Clients have been entered yet.  Here is some sample JSON data.');
 				for(var i=0, j=response.pendClList.length; i<j; i++){
 					var pend = response.pendClList[i];
 					$(''+
@@ -318,6 +319,7 @@ $(document).ready(function(){
 			type		:	'GET',
 			dataType	:	'json',
 			success		:	function(response) {
+			alert('No Clients have been entered yet.  Here is some sample JSON data.');
 				for(var i=0, j=response.potClList.length; i<j; i++){
 					var pot = response.potClList[i];
 					$(''+
@@ -350,20 +352,21 @@ $(document).ready(function(){
 			type		:	'GET',
 			dataType	:	'xml',
 			success		:	function(xml) {
+			alert('No Clients have been entered yet.  Here is some sample XML data.');
 			console.log(xml);
 				$(xml).find('completed').each(function(){
 				var completed = {};
-					completed.id = $(this).find("id").text();
-					completed.group = $(this).find("group").text();
-					completed.compName = $(this).find("compName").text();
-					completed.contName = $(this).find("contName").text();
-					completed.contPhone = $(this).find("contPhone").text();
-					completed.contEmail = $(this).find("contEmail").text();
-					completed.status = $(this).find("status").text();
-					completed.date = $(this).find("date").text();
-					completed.paymentStat = $(this).find("paymentStat").text();
-					completed.networkNotes = $(this).find("networkNotes").text();
-					completed.notes = $(this).find("notes").text();
+					completed.id = $(this).find('id').text();
+					completed.group = $(this).find('group').text();
+					completed.compName = $(this).find('compName').text();
+					completed.contName = $(this).find('contName').text();
+					completed.contPhone = $(this).find('contPhone').text();
+					completed.contEmail = $(this).find('contEmail').text();
+					completed.status = $(this).find('status').text();
+					completed.date = $(this).find('date').text();
+					completed.paymentStat = $(this).find('paymentStat').text();
+					completed.networkNotes = $(this).find('networkNotes').text();
+					completed.notes = $(this).find('notes').text();
 					$(''+
 						'<div class="compCl">'+
 							'<ul>'+
@@ -388,14 +391,14 @@ $(document).ready(function(){
 	
 	var clearStorage = function(){
 		if(localStorage.length === 0){
-			alert("You have no Clients to Clear.");
+			alert('You have no Clients to Clear.');
 		} else {
-			var ask = confirm("Are you sure you want to delete ALL Clients?  This action can NOT be undone!!!");
+			var ask = confirm('Are you sure you want to delete ALL Clients?  This action can NOT be undone!!!');
 			if(ask){
 				localStorage.clear();
-				alert("All clients have been deleted.");
-				window.location = "#home";
-				window.location.reload("#");
+				alert('All clients have been deleted.');
+				window.location = '#home';
+				window.location.reload('#');
 				return false;
 			}
 		}
