@@ -247,23 +247,24 @@ $(document).ready(function(){
 		for (var i=0, len=localStorage.length; i<len; i++) {
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+			var clData = JSON.parse(value);
 			var makeSubList = $('<div></div>');
 			var createLi = $(
 				'<ul>'+
-					'<li>' + obj.id[0] + ' ' + obj.id[1] + '</li>' +
-					'<li>' + obj.group[0] + ' ' + obj.group[1] + '</li>' +
-					'<li>' + obj.compName[0] + ' ' + obj.compName[1] + '</li>' +
-					'<li>' + obj.contName[0] + ' ' + obj.contName[1] + '</li>' +
-					'<li>' + obj.contPhone[0] + ' ' + obj.contPhone[1] + '</li>' +
-					'<li>' + obj.contEmail[0] + ' ' + obj.contEmail[1] + '</li>' +
-					'<li>' + obj.status[0] + ' ' + obj.status[1] + '</li>' +
-					'<li>' + obj.date[0] + ' ' + obj.date[1] + '</li>' +
-					'<li>' + obj.paymentStat[0] + ' ' + obj.paymentStat[1] + '</li>' +
-					'<li>' + obj.networkNotes[0] + ' ' + obj.networkNotes[1] + '</li>' +
-					'<li>' + obj.notes[0] + ' ' + obj.notes[1] + '</li>' +
+					'<li>' + clData.id[0] + ' ' + clData.id[1] + '</li>' +
+					'<li>' + clData.group[0] + ' ' + clData.group[1] + '</li>' +
+					'<li>' + clData.compName[0] + ' ' + clData.compName[1] + '</li>' +
+					'<li>' + clData.contName[0] + ' ' + clData.contName[1] + '</li>' +
+					'<li>' + clData.contPhone[0] + ' ' + clData.contPhone[1] + '</li>' +
+					'<li>' + clData.contEmail[0] + ' ' + clData.contEmail[1] + '</li>' +
+					'<li>' + clData.status[0] + ' ' + clData.status[1] + '</li>' +
+					'<li>' + clData.date[0] + ' ' + clData.date[1] + '</li>' +
+					'<li>' + clData.paymentStat[0] + ' ' + clData.paymentStat[1] + '</li>' +
+					'<li>' + clData.networkNotes[0] + ' ' + clData.networkNotes[1] + '</li>' +
+					'<li>' + clData.notes[0] + ' ' + clData.notes[1] + '</li>' +
 				'</ul>'				
 			);
+			console.log(clData);
 			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem' class='editBut'> Edit Client</a></button>");
 				editClientButton.on('click', function(){
 					editKey = $(this).data('key');
