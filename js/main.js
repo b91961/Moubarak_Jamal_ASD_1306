@@ -185,11 +185,11 @@ $(document).ready(function(){
 		
 		var item                = {};
 			item.id             = ['Client ID:', id];
-			item.group 			= ['Install:', $('#groups').val()];
-			item.compName		= ['Company Name:', $('#compname').val()];
-			item.contName		= ['Contact Name:', $('#contname').val()];
-			item.contPhone		= ['Contact Phone #:', $('#contphone').val()];
-			item.contEmail		= ['Contact Email:', $('#contemail').val()];
+			item.group 			= ['Install:', $('#group').val()];
+			item.compName		= ['Company Name:', $('#compName').val()];
+			item.contName		= ['Contact Name:', $('#contName').val()];
+			item.contPhone		= ['Contact Phone #:', $('#contPhone').val()];
+			item.contEmail		= ['Contact Email:', $('#contEmail').val()];
 			item.status         = ['Job Status:', $('#clientInstallForm :radio:checked + label').text()];
 			item.date           = ['Date Completed:', $('#date').val()];
 			item.paymentStat    = ['Payment Status:', $('#clientInstallForm ol :radio:checked + label').text()];
@@ -264,11 +264,11 @@ $(document).ready(function(){
 					'<li>' + clData.notes[0] + ' ' + clData.notes[1] + '</li>' +
 				'</ul>'				
 			);
-			console.log(clData);
 			var editClientButton = $("<button data-key='"+key+"'><a href='#addItem' class='editBut'> Edit Client</a></button>");
 				editClientButton.on('click', function(){
 					editKey = $(this).data('key');
 					editItem(editKey);
+					$.mobile.changePage('#addItem');
 				});
 			var deleteClientButton = $("<button data-key='"+key+"'><a href='#clientInstallForm' id='delete'"+key+"'> Delete Client</a></button>");
 				deleteClientButton.on('click', function(){
