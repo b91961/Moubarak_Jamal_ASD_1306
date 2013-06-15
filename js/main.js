@@ -87,8 +87,8 @@ $(document).ready(function(){
 		
 		var tdItem          = {};
 			tdItem.subject  = ['Subject:', $('#subject').val()];
-			tdItem.message 	= ['Message:', $('#todomess').val()];
-			localStorage.setItem(tdId, JSON.stringify(tdItem));
+			tdItem.todoMess 	= ['Message:', $('#todoMess').val()];
+			localStorage.setItem(tdId, JSON.stringify(tdItem)).appendTo('#todo');
 			alert('To-Do Message has been sent!');
 			console.log(tdId);
 			window.location = '#todo';
@@ -133,11 +133,11 @@ $(document).ready(function(){
 		for (var j=0, l=localStorage.length; j<l; j++) {
 			var key = localStorage.key(j);
 			var tdValue = localStorage.getItem(key);
-			var tdObj = JSON.parse(tdValue);
+			var tdClData = JSON.parse(tdValue);
 			var tdMakeSubList = $('<div></div>');
 			var tdCreateLi = $(
-				'<p>' + tdObj.subject[0] + ' ' + tdObj.subject[1] + '</p>' +
-				'<p>' + tdObj.todoMess[0] + ' ' + tdObj.todoMess[1] + '</p>'				
+				'<p>' + tdClData.subject[0] + ' ' + tdClData.subject[1] + '</p>' +
+				'<p>' + tdClData.todoMess[0] + ' ' + tdClData.todoMess[1] + '</p>'				
 			);
 			var tdEditClientButton = $("<button data-key='"+key+"'><a href='#todo' id='tdEditClientButton'> Edit Message</a></button>");
 				tdEditClientButton.on('click', function(){
@@ -153,9 +153,9 @@ $(document).ready(function(){
 		}
 	};
 	
-	$('#tdEditClientButton').click(function(){
-		$('#tdDropdown').trigger('click');
-	});
+	//$('#tdEditClientButton').click(function(){
+	//	$('#tdDropdown').trigger('click');
+	//});
 	
 	var tdClearStorage = function(){
 		if(localStorage.length === 0){
@@ -198,7 +198,7 @@ $(document).ready(function(){
 			localStorage.setItem(id, JSON.stringify(item));
 			alert('Client Information is Saved!');
 			console.log(id);
-			window.location = '#home';
+			window.location = '#todo';
 			window.location.reload('#');
 			return false;
 	};
@@ -412,6 +412,7 @@ $(document).ready(function(){
 	$('.tdClearStorage').on('click', tdClearStorage);
 	$('#submitMessButton').on('click', storeData);
 	$('.tdDisplayData').on('click', tdShowData);
+
 
 });
 
